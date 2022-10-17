@@ -1,8 +1,5 @@
 from turtle import Turtle
 
-STARTING_POSITION = (0, 0)
-BALL_SIZE = (20, 20)
-
 class Ball(Turtle):
 
     def __init__(self):
@@ -10,8 +7,14 @@ class Ball(Turtle):
         self.penup()
         self.color("white")
         self.shape("square")
+        self.xmove = 10
+        self.ymove = 10
 
     def move(self):
-        new_x = self.xcor() + 10
-        new_y = self.ycor() + 10
+        new_x = self.xcor() + self.xmove
+        new_y = self.ycor() + self.ymove
         self.goto(new_x, new_y)
+
+    def bounce(self):
+        self.ymove *= -1
+        # self.xmove *= -1
